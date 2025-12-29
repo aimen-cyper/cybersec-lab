@@ -1,0 +1,20 @@
+# Exported from Render on 2025-12-29T14:35:02Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: cybersec-lab
+      runtime: python
+      repo: https://github.com/aimen-cyper/cybersec-lab
+      plan: free
+      envVars:
+      - key: BOT_TOKEN
+        sync: false
+      region: virginia
+      buildCommand: pip install -r requirements.txt
+      startCommand: python bot.py
+      autoDeployTrigger: commit
+
